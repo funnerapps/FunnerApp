@@ -1,0 +1,23 @@
+.searchbar {
+    display: flex;
+    flex-direction: row;
+    width: -webkit-fill-available;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    padding: 5px 7px;
+    border-radius: 15px;
+    background-color: rgb(243, 243, 243);
+    width: 228px;
+}
+
+.searchbar input {
+    outline: none;
+    font-size: 14px;
+    font-family: arimo, arial;
+    border: none;
+    color: rgb(35, 31, 32);
+    background-color: transparent;
+    line-height: 20px;
+    width: 100%;
+    padding: 0px;
+}

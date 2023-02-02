@@ -1,0 +1,80 @@
+.row {
+    margin: 12px;
+    background-color: white;
+    border: 1px solid rgb(230, 231, 232);
+}
+
+table {
+    border: 1px solid rgb(230, 231, 232);
+    background-color: white;
+    border-collapse: collapse;
+}
+
+tbody {
+    overflow:auto;
+}
+
+td,th {
+    max-width: 134px;
+}
+
+tr, td, th {
+    border-top: 1px solid rgb(230, 231, 232);
+    border-bottom: 1px solid rgb(230, 231, 232);
+}
+
+tr.row:hover {
+    background-color: rgb(249, 249, 249);
+}
+
+.th, .td {
+    cursor: pointer;
+    width: 100%;
+    padding-block: 15px;
+    padding-inline: 20px 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.th {
+    font-size: 12px;
+}
+
+
+.td {
+    font-size: 12px;
+}
+
+.th.active::before {
+    font-size: 15px;
+}
+
+.th.active.asc::before {
+    content: "↑";
+}
+
+.th.active.desc::before {
+    content: "↓";
+}
+
+th div {
+    position: relative;
+    text-align: right;
+}
+
+th:hover {
+    background-color: rgb(249, 249, 249);
+}
+
+
+th:hover div::after {
+    content: "";
+    display: block;
+    width: 4px;
+    background-color: rgb(202, 202, 202);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}

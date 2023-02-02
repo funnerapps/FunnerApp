@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+/*BASE*/
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  direction: rtl;
+  min-height: 100vh;
+  font-family: Arimo, Arial;
+  color: rgb(35, 31, 32);
+}
+
+#root,.App {
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(68, 122, 239);
+}
+
+/* HELPERS */
+.flex {
+  display: flex;
+}
+
+/*HEADER*/
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+  align-items: center;
+  border-bottom: 1px solid rgb(230, 231, 232);
+}
+
+/*MAIN*/
+main {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.main {
+  flex-grow: 1;
+  background-color: #f9f9f9;
+}
+
+.table-wrapper {
+  margin: 15px;
+  height: -webkit-fill-available;
+  background-color: white;
+}

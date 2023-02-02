@@ -1,0 +1,20 @@
+.sidebar {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-inline-end: 1px solid rgb(230, 231, 232)
+}
+
+.display {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.display:hover {
+    background-color: rgb(249, 249, 249) !important;
+}
+
+.display.active {
+    background-color: rgb(243, 243, 243);
+    color: rgb(68, 122, 239);
+}
