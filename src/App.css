@@ -28,6 +28,10 @@ a {
   color: rgb(68, 122, 239);
 }
 
+.blue {
+  color: rgb(68, 122, 239);
+}
+
 /* HELPERS */
 .flex {
   display: flex;

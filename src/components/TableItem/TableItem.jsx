@@ -18,11 +18,17 @@ const TableItem = ({ data }) => {
         }
         return newDate;
     }
+
+    function openChatPopup(phone, name) {
+        console.log(phone, name);
+        window.parent.postMessage({ type: 'FunnerOpenPopup', phone, name }, '*') 
+    }
+
     return (
         <tr className="row">
             <td>
                 <div className="td">
-                    <a href="#">{data.UserDisplayPhoneNumber}</a>
+                    <div className="blue" onClick={()=>openChatPopup(data.UserDisplayPhoneNumber, '')}>{data.UserDisplayPhoneNumber}</div>
                 </div>
             </td>
             <td>
