@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Search.css';
+import SeacrhSvg from '../../search.svg';
 
 const SearchBar = ({ criteria, changeCriteria }) => {
     const [query, setQuery] = useState('')
@@ -20,8 +21,8 @@ const SearchBar = ({ criteria, changeCriteria }) => {
     }
     return (
         <div className="searchbar">
-            <input type="text" placeholder='חפש' onKeyDown={handleKeyDown} value={query} onChange={e => setQuery(e.target.value)}></input>
-            <i className="fa-regular fa-magnifying-glass"></i>
+            <input type="text" placeholder='חיפוש' onKeyDown={handleKeyDown} value={query} onChange={e => setQuery(e.target.value)}></input>
+            <img src={SeacrhSvg} alt="search" />
         </div>
     )
 }

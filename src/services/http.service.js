@@ -1,8 +1,8 @@
 import Axios from 'axios'
 
 const BASE_URL = process.env.NODE_ENV === 'production'
-    ? 'https://shukichrome.codersuccess.com/api/services/'
-    : 'https://shukichrome.codersuccess.com/api/services/'
+    ? 'https://app.funner.co.il/api/services/'
+    : 'https://app.funner.co.il/api/services/'
 
 
 var axios = Axios.create({

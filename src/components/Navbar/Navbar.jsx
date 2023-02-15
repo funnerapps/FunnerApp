@@ -1,6 +1,6 @@
-import './Sidebar.css';
+import './Navbar.css';
 
-const Sidebar = ({criteria,changeCriteria}) => {
+const Navbar = ({criteria,changeCriteria}) => {
     function onChangeType(event) {
         if (event.currentTarget.classList.contains('active')) return;
         if(event.currentTarget.classList.contains('display-all')) {
@@ -35,16 +35,16 @@ const Sidebar = ({criteria,changeCriteria}) => {
     return (
         <div className="sidebar">
             <div className={`display display-all ${criteria["filter_by_open"] === 'all' ? 'active' : ''}`} onClick={onChangeType}>
-                כל השיחות
-            </div>
-            <div className={`display display-closed ${criteria["filter_by_open"] === 'closed' ? 'active' : ''}`} onClick={onChangeType}>
-                שיחות סגורות
+                הכל
             </div>
             <div className={`display display-open ${criteria["filter_by_open"] === 'open' ? 'active' : ''}`} onClick={onChangeType}>
-                שיחות פתוחות
+                פתוחות
+            </div>
+            <div className={`display display-closed ${criteria["filter_by_open"] === 'closed' ? 'active' : ''}`} onClick={onChangeType}>
+                סגורות
             </div>
         </div>
     )
 }
 
-export default Sidebar;
+export default Navbar;

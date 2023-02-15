@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /*BASE*/
 
@@ -10,7 +10,7 @@ html, body {
   margin: 0;
   direction: rtl;
   min-height: 100vh;
-  font-family: Arimo, Arial;
+  font-family: Heebo, Arial;
   color: rgb(35, 31, 32);
 }
 
@@ -32,24 +32,44 @@ a {
   color: rgb(68, 122, 239);
 }
 
+select, input, ::placeholder {
+  font-family: Heebo;
+}
+
 /* HELPERS */
 .flex {
   display: flex;
 }
 
+.align-items-center {
+  align-items: center;
+}
+
 /*HEADER*/
 header {
+  padding: 14px 10px;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.top {
   display: flex;
   justify-content: space-between;
-  padding: 0px 15px;
-  align-items: center;
-  border-bottom: 1px solid rgb(230, 231, 232);
+  background-color: white;
+  padding-bottom: 20px;
+}
+
+.top .left {
+  display: flex;
+  gap: 16px;
 }
 
 /*MAIN*/
 main {
   height: 100%;
   flex-grow: 1;
+  background-color: #EEEEEE;
 }
 
 .main {
@@ -58,6 +78,7 @@ main {
 }
 
 .table-wrapper {
+  padding: 10px;
   margin: 15px;
   height: -webkit-fill-available;
   background-color: white;

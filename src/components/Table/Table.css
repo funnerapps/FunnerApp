@@ -1,37 +1,41 @@
 .row {
     margin: 12px;
     background-color: white;
-    border: 1px solid rgb(230, 231, 232);
 }
 
 table {
-    border: 1px solid rgb(230, 231, 232);
+    border-bottom: 1px solid rgb(230, 231, 232);
     background-color: white;
     border-collapse: collapse;
 }
 
 tbody {
-    overflow:auto;
+    overflow: auto;
 }
 
-td,th {
+
+td,
+th {
     max-width: 134px;
+    font-size: 14px;
 }
 
-tr, td, th {
+tr>th {
+    border-bottom: 1px solid rgb(230, 231, 232);
+}
+
+tr>td {
     border-top: 1px solid rgb(230, 231, 232);
     border-bottom: 1px solid rgb(230, 231, 232);
 }
 
 tr.row:hover {
-    background-color: rgb(249, 249, 249);
+    background-color: rgba(25, 118, 210, 0.08);
 }
 
-.th, .td {
+.th,
+.td {
     cursor: pointer;
-    width: 100%;
-    padding-block: 15px;
-    padding-inline: 20px 0px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
