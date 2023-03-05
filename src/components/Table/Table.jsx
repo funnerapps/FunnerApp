@@ -2,7 +2,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import TableItem from '../TableItem/TableItem';
 import './Table.css';
 
-const Table = ({ data, criteria, changeCriteria, getRandomColor }) => {
+const Table = ({ data, criteria, changeCriteria, getRandomColor, onIsOpenChange }) => {
     function onChangeSort(event) {
         debugger;
         let newCriteria;
@@ -49,9 +49,9 @@ const Table = ({ data, criteria, changeCriteria, getRandomColor }) => {
             <table width="100%" cellPadding="0">
                 <thead>
                     <tr>
-                    <th width="55">
-                    
-                    </th>
+                        <th width="55">
+
+                        </th>
                         <th width="134">
                             <div
                                 id="phone"
@@ -61,26 +61,30 @@ const Table = ({ data, criteria, changeCriteria, getRandomColor }) => {
                             </div>
                         </th>
                         <th width="134">
-                            <div className='th'>
+                            <div id="whatsapp_full_name"
+                                className={`th ${criteria["order_by"] === 'whatsapp_full_name' ? 'active' : ""} ${criteria["order_by"] === 'whatsapp_full_name' ? getSort() : ""}`}
+                                onClick={onChangeSort}>
                                 שם ווצאפ
                             </div>
                         </th>
                         <th width="134">
-                            <div id="name"
-                                className={`th ${criteria["order_by"] === 'name' ? 'active' : ""} ${criteria["order_by"] === 'name' ? getSort() : ""}`}
+                            <div id="contact_full_name"
+                                className={`th ${criteria["order_by"] === 'contact_full_name' ? 'active' : ""} ${criteria["order_by"] === 'contact_full_name' ? getSort() : ""}`}
                                 onClick={onChangeSort}>
                                 לקוח
                             </div>
                         </th>
                         <th width="134">
-                            <div id="name"
-                                className={`th ${criteria["order_by"] === 'name' ? 'active' : ""} ${criteria["order_by"] === 'name' ? getSort() : ""}`}
+                            <div id="account_full_name"
+                                className={`th ${criteria["order_by"] === 'account_full_name' ? 'active' : ""} ${criteria["order_by"] === 'account_full_name' ? getSort() : ""}`}
                                 onClick={onChangeSort}>
                                 איש קשר
                             </div>
                         </th>
                         <th width="134">
-                            <div className='th'>
+                            <div id="notification_contact_name"
+                                className={`th ${criteria["order_by"] === 'notification_contact_name' ? 'active' : ""} ${criteria["order_by"] === 'notification_contact_name' ? getSort() : ""}`}
+                                onClick={onChangeSort}>
                                 משתמש
                             </div>
                         </th>
@@ -126,7 +130,7 @@ const Table = ({ data, criteria, changeCriteria, getRandomColor }) => {
                 <tbody>
 
                     {data.map(item => (
-                        <TableItem key={item.Id} data={item} getRandomColor={getRandomColor}/>
+                        <TableItem key={item.Id} data={item} getRandomColor={getRandomColor} onIsOpenChange={onIsOpenChange}/>
                     ))}
 
 

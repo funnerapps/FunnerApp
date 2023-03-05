@@ -2,7 +2,7 @@ import Avatar from '../../avatar.svg';
 import ArrowUp from '../../arrow-up.svg';
 import ArrowDown from '../../arrow-down.svg';
 
-const TableItem = ({ data, getRandomColor }) => {
+const TableItem = ({data, getRandomColor, onIsOpenChange }) => {
     function formatDate(dateString) {
         let newDate = '';
         if (dateString) {
@@ -44,23 +44,24 @@ const TableItem = ({ data, getRandomColor }) => {
             </td>
             <td>
                 <div className="td">
-                    שוקי פורטל
+                    {data.WhatsappFullName}
                 </div>
             </td>
             <td>
                 <div className="td">
-                    <a href="#">{data.FullName}</a>
+                    {data.AccountFullName && data.AccountPowerlinkId && <a href={`https://app.powerlink.co.il/app/record/1/${data.AccountPowerlinkId}`} traget="_blank">{data.AccountFullName}</a>}
                 </div>
             </td>
             <td>
                 <div className="td">
-                    <a href="#">{data.FullName}</a>
+                    {data.ContactFullName && data.ContactPowerlinkId && <a href={`https://app.powerlink.co.il/app/record/2/${data.ContactPowerlinkId}`} traget="_blank">{data.ContactFullName}</a>}
                 </div>
             </td>
             <td>
                 <div className="td flex align-items-center">
-                <div className="user" style={{
-                        backgroundColor: color.color,
+                    {data.NotificationContactName &&
+                    <div className="user" style={{
+                        backgroundColor: getRandomColor(data.NotificationContactName).color,
                         width: '20px',
                         height: '20px',
                         display: 'flex',
@@ -68,13 +69,15 @@ const TableItem = ({ data, getRandomColor }) => {
                         justifyContent: 'center',
                         borderRadius: '50%',
                         marginLeft: '5px'
-                    }}>{color.character}</div>
-                    משתמש
+                    }}>{getRandomColor(data.NotificationContactName).character}</div>
+                    }
+                {data.NotificationContactName &&data.NotificationContactName}
+                   
                 </div>
             </td>
             <td>
                 <div className="td">
-                    <select value={data.IsOpen}>
+                    <select value={data.IsOpen} onChange={(e) => onIsOpenChange(data.Id, e)}>
                         <option value="true">פתוחה</option>
                         <option value="false">סגורה</option>
                     </select>

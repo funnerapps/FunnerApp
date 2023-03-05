@@ -1,7 +1,7 @@
 
 
 const timeStamp = Date.now()
-document.body.innerHTML += `<iframe id="funnerApp" src="https://www.pbd.co.il/apps/FunnerApp/index.html?timestamp=${timeStamp}" width="100%" height="100%"></iframe>`
+document.body.innerHTML += `<iframe id="funnerApp" src="https://www.pbd.co.il/apps/FunnerApp/index.html?timestamp=${timeStamp}" width="100%" height="100%" frameBorder="0"></iframe>`
 const iframe = document.querySelector("#funnerApp");
 iframe.addEventListener("load", () => {
     iframe.contentWindow.postMessage({ type: "onLoad", "userglobalid": window.parent.dataLayer[0].userglobalid }, '*');

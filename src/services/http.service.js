@@ -1,9 +1,14 @@
 import Axios from 'axios'
 
+//prod
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? 'https://app.funner.co.il/api/services/'
     : 'https://app.funner.co.il/api/services/'
 
+//dev
+// const BASE_URL = process.env.NODE_ENV === 'production'
+//     ? 'https://chrometest.codersuccess.com/services/'
+//     : 'https://chrometest.codersuccess.com/api/services/'
 
 var axios = Axios.create({
     withCredentials: true

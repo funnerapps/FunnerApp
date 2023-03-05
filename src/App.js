@@ -63,6 +63,16 @@ function App() {
     }));
   }
 
+  function onIsOpenChange(id, e) {
+    const value = e.target.value;
+    const newData = structuredClone(data);
+    const index = newData.findIndex(d => d.Id === id);
+    newData[index].IsOpen = value;
+    const phone = newData[index].UserDisplayPhoneNumber;
+    setData(newData);
+    httpService.post('SetChatUserOpenStatus', { userglobalid: criteria.userglobalid, chatUserDisplayPhoneNumber: phone, isOpen: value })
+  }
+
   function getRandomColor(name) {
     // get first alphabet in upper case
     const firstAlphabet = name.charAt(0).toLowerCase();
@@ -90,26 +100,26 @@ function App() {
         <header className='header flex align-items-center'>
           <img src={FunnerLogo} alt="Logo" />שיחות
         </header>
-        
+
         <main>
-        
+
           <div className="table-wrapper">
-          <div className='top flex'>
-          <Navbar criteria={criteria} changeCriteria={changeCriteria} />
-          <div className='left'>
-            <SearchBar criteria={criteria} changeCriteria={changeCriteria} />
-            <Select values={[
-              {value: 1, text:'כל הסוגים'},
-              {value: 2, text:'נכנסות'},
-              {value: 2, text:'יוצאות'},
-              ]}/>
-              <Select values={[
-              {value: 1, text:'24 שעות אחרונות'}
-              ]}/>
-              <FilterUsers/>
-          </div>
-        </div>
-            <Table data={data} criteria={criteria} changeCriteria={changeCriteria} getRandomColor={getRandomColor} />
+            <div className='top flex'>
+              <Navbar criteria={criteria} changeCriteria={changeCriteria} />
+              <div className='left'>
+                <SearchBar criteria={criteria} changeCriteria={changeCriteria} />
+                <Select values={[
+                  { value: 1, text: 'כל הסוגים' },
+                  { value: 2, text: 'נכנסות' },
+                  { value: 3, text: 'יוצאות' },
+                ]} />
+                <Select values={[
+                  { value: 1, text: '24 שעות אחרונות' }
+                ]} />
+                <FilterUsers />
+              </div>
+            </div>
+            <Table data={data} criteria={criteria} changeCriteria={changeCriteria} getRandomColor={getRandomColor} onIsOpenChange={onIsOpenChange} />
           </div>
         </main>
       </>
