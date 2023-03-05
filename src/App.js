@@ -14,31 +14,31 @@ function App() {
   const [criteria, setCriteria] = useState(null)
 
   useEffect(() => {
-    // window.addEventListener("message", (e) => {
-    //   if (e.data.type === 'onLoad') {
-    //     setCriteria({
-    //       userglobalid: e.data.userglobalid,
-    //       "page_number": 25,
-    //       "page_offset": 0,
-    //       "filter_by_open": "all",
-    //       "order_by": 'last_message_date',
-    //       "order_descending": true,
-    //       "search_term": ""
-    //     })
-    //   }
-    // });
+    window.addEventListener("message", (e) => {
+      if (e.data.type === 'onLoad') {
+        setCriteria({
+          userglobalid: e.data.userglobalid,
+          "page_number": 25,
+          "page_offset": 0,
+          "filter_by_open": "all",
+          "order_by": 'last_message_date',
+          "order_descending": true,
+          "search_term": ""
+        })
+      }
+    });
 
 
     window.parent.postMessage({ type: 'onLoad' }, '*')
-    setCriteria({
-      userglobalid: '4cf6b1d5-08c5-412c-8458-4a7dcac72040',
-      "page_number": 25,
-      "page_offset": 0,
-      "filter_by_open": "all",
-      "order_by": 'last_message_date',
-      "order_descending": true,
-      "search_term": ""
-    })
+    // setCriteria({
+    //   userglobalid: '4cf6b1d5-08c5-412c-8458-4a7dcac72040',
+    //   "page_number": 25,
+    //   "page_offset": 0,
+    //   "filter_by_open": "all",
+    //   "order_by": 'last_message_date',
+    //   "order_descending": true,
+    //   "search_term": ""
+    // })
   }, []);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function App() {
     newData[index].IsOpen = value;
     const phone = newData[index].UserDisplayPhoneNumber;
     setData(newData);
-    httpService.post('SetChatUserOpenStatus', { userglobalid: criteria.userglobalid, chatUserDisplayPhoneNumber: phone, isOpen: value })
+    httpService.post('SetChatUserOpenStatus', { userglobalid: criteria.userglobalid, chatUserDisplayPhoneNumber: phone, isOpen: JSON.parse(value) })
   }
 
   function getRandomColor(name) {
@@ -108,7 +108,7 @@ function App() {
               <Navbar criteria={criteria} changeCriteria={changeCriteria} />
               <div className='left'>
                 <SearchBar criteria={criteria} changeCriteria={changeCriteria} />
-                <Select values={[
+                {/* <Select values={[
                   { value: 1, text: 'כל הסוגים' },
                   { value: 2, text: 'נכנסות' },
                   { value: 3, text: 'יוצאות' },
@@ -116,7 +116,7 @@ function App() {
                 <Select values={[
                   { value: 1, text: '24 שעות אחרונות' }
                 ]} />
-                <FilterUsers />
+                <FilterUsers /> */}
               </div>
             </div>
             <Table data={data} criteria={criteria} changeCriteria={changeCriteria} getRandomColor={getRandomColor} onIsOpenChange={onIsOpenChange} />

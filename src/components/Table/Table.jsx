@@ -68,15 +68,15 @@ const Table = ({ data, criteria, changeCriteria, getRandomColor, onIsOpenChange 
                             </div>
                         </th>
                         <th width="134">
-                            <div id="contact_full_name"
-                                className={`th ${criteria["order_by"] === 'contact_full_name' ? 'active' : ""} ${criteria["order_by"] === 'contact_full_name' ? getSort() : ""}`}
+                            <div id="account_full_name"
+                                className={`th ${criteria["order_by"] === 'account_full_name' ? 'active' : ""} ${criteria["order_by"] === 'account_full_name' ? getSort() : ""}`}
                                 onClick={onChangeSort}>
                                 לקוח
                             </div>
                         </th>
                         <th width="134">
-                            <div id="account_full_name"
-                                className={`th ${criteria["order_by"] === 'account_full_name' ? 'active' : ""} ${criteria["order_by"] === 'account_full_name' ? getSort() : ""}`}
+                            <div id="contact_full_name"
+                                className={`th ${criteria["order_by"] === 'contact_full_name' ? 'active' : ""} ${criteria["order_by"] === 'contact_full_name' ? getSort() : ""}`}
                                 onClick={onChangeSort}>
                                 איש קשר
                             </div>
